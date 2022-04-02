@@ -1,0 +1,125 @@
+
+<nav class="navbar navbar-light bg-dark">
+  <div class="container-fluid">
+    <h1 (click)="getAllDogs()" style="color: white;cursor: pointer;">Dogs  DB</h1>
+    <div class="d-flex">
+   <img style="width: 60px; height: 60px; border-radius: 50%;border: 2px solid red" src="https://doglooksgood.com/wp-content/uploads/2020/04/brian-griffin-brian-griffin-family-guy-1.jpg" alt="">
+    </div>
+  </div>
+</nav>
+
+
+
+
+<div class="container" [ngClass]="{'fade':showModal}" class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-1"><h2>Dogs <b></b></h2></div>
+                    <div class="col-sm-7">
+                      <Button 
+                      (click)="showModal=true"
+                      class="btn btn-primary">Add new Dog</Button></div>
+                    <div class="col-sm-4">
+                        <div class="search-box">
+                          <label for="exampleDataList" class="form-label"></label>
+                          <input 
+                          
+                          class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Search for Dog..."
+                          (change)="DogSearch($any($event.target).value)">
+                          <datalist id="datalistOptions">
+                          <option *ngFor="let dog of allDogs" [value]="dog.name" value=""></option>
+                          </datalist>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <table 
+           class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>age</th>
+                        <th>breed</th>
+                        <th>Created At</th>
+                        <th></th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of allDogs">
+                      <td>{{row.id}}</td>
+                      <td>{{row.name}}</td>
+                      <td>{{row.age}}</td>
+                      <td>{{row.breed}}</td>
+                      <td>{{row.created_at | date:'short'}}</td>
+                        <td>
+                            <button href="#" class="btn btn-info mb-2" 
+                            (click)="showModal=true;updateForm=true;onEdit(row)">Update</button>
+                            <button 
+                            (click)="deleteDog(row)"
+                            href="#" class="btn btn-danger" >Delete</button>
+                        </td>
+                    </tr>
+
+                    
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div 
+[ngClass]="{'show':showModal}"  
+class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{(showModal && updateForm) ? 'Update Dog': 'Add Dog' }}</h5>
+       
+      </div>
+
+      <form [formGroup]="formValue" >
+      <div class="modal-body">
+      
+          <div >Enter Name</div>
+          <div class="col-md-6">
+            <input 
+            formControlName="name"
+             placeholder="name..." id="addInputName" class="form-control">
+          </div>
+          <div >Enter age</div>
+          <div 
+          class="col-md-6"><input
+            formControlName="age"
+            placeholder="age..." id="addInputAge" class="form-control"></div>
+          <div>Enter breed</div>
+       
+         
+          <div 
+          class="col-md-6"><input 
+          formControlName="breed"
+           placeholder="breed..."    id="addInputBreed" class="form-control"></div>
+       
+
+         
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="updateForm ? updateDog() : postDog()" class="btn btn-primary">{{(showModal && updateForm) ? 'Update!' : 'Create!'}}</button>
+        <button id="cancel" type="button" class="btn btn-secondary" data-dismiss="modal" (click)="showModal=false;updateForm=false;formValue.reset()">Close</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
