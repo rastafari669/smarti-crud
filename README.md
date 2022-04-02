@@ -14,6 +14,7 @@ Run composer install or php composer.phar install
 Run php artisan key:generate
 Run php artisan migrate
 Run php artisan serve
+
 The laravel server will start http://127.0.0.1:8000
 
 \make sure that sql is active as the data will be saved in a sql DB\
