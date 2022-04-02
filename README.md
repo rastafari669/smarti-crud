@@ -1,12 +1,12 @@
 # smarti-crud
 Create a local databse named smart_db -> utf8_general_ci.
 Rename '.env.example' file to '.env' inside the project root and fill the database information.
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1 
-DB_PORT=8889 
-DB_DATABASE=smart_db 
-DB_USERNAME=root 
-DB_PASSWORD=root
+DB_CONNECTION=mysql,
+DB_HOST=127.0.0.1,
+DB_PORT=8889,
+DB_DATABASE=smart_db,
+DB_USERNAME=root, 
+DB_PASSWORD=root,
 
 Open the terminal and navigate to crud-front and run npm i
 Open a new terminal and navigate to crud-back and follow the instructions:
