@@ -2,7 +2,7 @@
 Create a local databse named smart_db -> utf8_general_ci.
 Rename '.env.example' file to '.env'.
 
-inside the project root and fill the database connection information.
+Inside the project root and fill the database connection information.
 
 DB_CONNECTION=mysql
 
