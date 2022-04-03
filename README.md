@@ -21,8 +21,11 @@ Open the terminal and navigate to crud-front folder and run npm i.
 Open a new terminal and navigate to crud-back folder and follow the instructions:
 
 Run composer install or php composer.phar install
+
 Run php artisan key:generate
+
 Run php artisan migrate
+
 Run php artisan serve
 
 The laravel server will start http://127.0.0.1:8000.
