@@ -1,4 +1,5 @@
 # smarti-crud
+
 Create a local databse named smart_db -> utf8_general_ci.
 Rename '.env.example' file to '.env'.
 
