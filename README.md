@@ -17,7 +17,7 @@ DB_USERNAME=root
 
 DB_PASSWORD=root
 
-Open the terminal and navigate to crud-front and run npm i
+Open the terminal and navigate to crud-front and run npm i.
 Open a new terminal and navigate to crud-back and follow the instructions:
 Run composer install or php composer.phar install
 Run php artisan key:generate
