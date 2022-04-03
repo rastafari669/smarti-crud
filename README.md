@@ -19,6 +19,7 @@ DB_PASSWORD=root
 
 Open the terminal and navigate to crud-front folder and run npm i.
 Open a new terminal and navigate to crud-back folder and follow the instructions:
+
 Run composer install or php composer.phar install
 Run php artisan key:generate
 Run php artisan migrate
