@@ -1,6 +1,6 @@
 # smarti-crud
 
-Create a local databse named smart_db -> utf8_general_ci.
+Create a local databse named smart_db -> utf8_general_ci in Mysql DB.
 Rename '.env.example' file to '.env'.
 
 Inside the project root .env fill the database connection information.
