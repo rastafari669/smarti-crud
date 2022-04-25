@@ -10,6 +10,7 @@ import { DogModel } from './models/dog.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
   title = 'crud-front';
   showModal=false;
@@ -37,7 +38,6 @@ this.getAllDogs();
   postDog(){
    
 
-   
       this.dogModelObj.name = this.formValue.value.name;
       this.dogModelObj.age = this.formValue.value.age;
       this.dogModelObj.breed = this.formValue.value.breed;
@@ -55,9 +55,9 @@ this.getAllDogs();
       },err=>{
        
         
-        this.toaster.error(err.error.errors.name && err.error.errors.name)
-        this.toaster.error(err.error.errors.age && err.error.errors.age)
-        this.toaster.error(err.error.errors.breed && err.error.errors.breed)
+        err.error.errors.name && this.toaster.error( err.error.errors.name)
+        err.error.errors.age && this.toaster.error(err.error.errors.age)
+        err.error.errors.breed && this.toaster.error(err.error.errors.breed)
         
       })
    
@@ -67,14 +67,14 @@ this.getAllDogs();
   }
 
   getAllDogs(){
+    
 this.myService.getAllDog().subscribe(res=>{
   this.allDogs = res;
 })
   }
 
   deleteDog(row:any){
-   
-    
+      
     this.myService.deleteDog(row.id).subscribe(res =>{
       this.toaster.success('Dog was deleted successfully!')
       this.getAllDogs();
@@ -103,11 +103,19 @@ updateDog(){
     ref?.click();
   this.formValue.reset();
   this.getAllDogs();
+  },err=>{
+       
+        
+    err.error.errors.name && this.toaster.error( err.error.errors.name)
+    err.error.errors.age && this.toaster.error(err.error.errors.age)
+    err.error.errors.breed && this.toaster.error(err.error.errors.breed)
+    
   })
 }
 
 
 DogSearch(name:any){
+
 this.name = name;
 if(name){
   this.myService.searchDog(name)

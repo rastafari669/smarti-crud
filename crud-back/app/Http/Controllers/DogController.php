@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePostRequest;
 
 class DogController extends Controller
 {
@@ -23,13 +24,9 @@ class DogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        $request->validate([
-            'name'=> 'required',
-            'age' =>'required',
-            'breed'=> 'required'
-        ]);
+       
         return User::create($request->all());
     }
 
@@ -51,7 +48,7 @@ class DogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePostRequest $request, $id)
     {
         $dog = User::find($id);
         $dog -> update($request->all());
