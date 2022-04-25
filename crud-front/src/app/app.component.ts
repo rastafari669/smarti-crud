@@ -73,7 +73,7 @@ this.myService.getAllDog().subscribe(res=>{
   }
 
   deleteDog(row:any){
-    console.log(row.id);
+   
     
     this.myService.deleteDog(row.id).subscribe(res =>{
       this.toaster.success('Dog was deleted successfully!')
